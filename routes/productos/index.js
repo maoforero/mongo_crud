@@ -2,13 +2,20 @@ const express = require("express");
 
 const router = express.Router();
 
+
 const appleRouter = require('./apple');
 const samsungRouter = require('./samsung');
 const xiaomiRouter = require('./xiaomi');
 
+router.get('/', (req, res) => {
+    console.log(req.headers);
+    console.log(req.body);
+});
 
 router.post('/', (req, res) => {
-    res.send('Post productos')
+    console.log(req.query);
+    console.log(req.body);
+    res.send('Post productos ' + req.body.text + ' nuevo');
 });
 
 router.delete('/', (req, res) => {
@@ -17,10 +24,6 @@ router.delete('/', (req, res) => {
 
 router.patch('/', (req, res) => {
     res.send('patch')
-});
-
-router.get('/', (req, res) => {
-    res.json(['Productos'])
 });
 
 router.use('/apple', appleRouter);
