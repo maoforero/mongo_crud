@@ -7,6 +7,9 @@ const PORT = 3000; // Puerto de escucha
 let app = express();
 app.use(express.json());
 
+//static files
+app.use('/', express.static('public'));
+
 //App iniciando desde cualquier ruta
 app.use("/", router)
 
