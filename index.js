@@ -4,10 +4,9 @@ const router = require("./routes");
 
 const PORT = 3000; // Puerto de escucha
 
+app.use(express.json());
 //App iniciando desde cualquier ruta
-app.use('/', (req, res) => {
-    res.sendStatus(200);
-})
+app.use("/", router)
 
 //App escuchando puerto 3000
 app.listen(PORT, (req, res) => {

@@ -4,4 +4,9 @@ const productsRouter =  require('./productos');
 
 router.use('/productos', productsRouter);
 
+router.use('/', (req, res) => {
+    res.send(200);
+})
+
+
 module.exports = router;
