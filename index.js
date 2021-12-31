@@ -1,5 +1,7 @@
 const express = require("express"); // Import express
 const app = express();
+const router = require("./routes");
+
 const PORT = 3000; // Puerto de escucha
 
 //App iniciando desde cualquier ruta
