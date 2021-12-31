@@ -2,6 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
+const response = require("../../network");
 
 const appleRouter = require('./apple');
 const samsungRouter = require('./samsung');
@@ -10,12 +11,17 @@ const xiaomiRouter = require('./xiaomi');
 router.get('/', (req, res) => {
     console.log(req.headers);
     console.log(req.body);
+    response.success(req, res, 'Lista de productos')
 });
 
 router.post('/', (req, res) => {
     console.log(req.query);
-    console.log(req.body);
-    res.send('Post productos ' + req.body.text + ' nuevo');
+    if(req.query.error == 'ok'){
+        response.error(req, res, 'error de prueba', 400);
+    }else{
+        response.success(req, res, 'Agregado correctamente', 201);
+    }
+    
 });
 
 router.delete('/', (req, res) => {
