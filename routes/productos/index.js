@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     console.log(req.query);
     if(req.query.error == 'ok'){
-        response.error(req, res, 'error de prueba', 400);
+        response.error(req, res, 'Error Inesperadoa', 400, 'simulacion de error');
     }else{
         response.success(req, res, 'Agregado correctamente', 201);
     }
