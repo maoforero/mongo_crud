@@ -13,16 +13,15 @@ function addProducto(name, price, owner, stock){
             price: price,
             owner: owner,
             stock: stock,
-            date: new Date()
         };
 
         console.log(fullInput);
         resolve(fullInput);
     })
-
-
     console.log(fullInput)
 }
+
+
 
 module.exports = {
     addProducto
