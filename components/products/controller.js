@@ -1,3 +1,4 @@
+const store = require('./store');
 
 function addProducto(name, price, owner, stock){
     return new Promise((resolve, reject) => {
@@ -15,14 +16,20 @@ function addProducto(name, price, owner, stock){
             stock: stock,
         };
 
-        console.log(fullInput);
+        //Almacenando el item
+        store.add(fullInput);
         resolve(fullInput);
     })
     console.log(fullInput)
 }
 
-
+function getItem(){
+    return new Promise((resolve, reject) => {
+        resolve(store.list());
+    })
+}
 
 module.exports = {
-    addProducto
+    addProducto,
+    getItem
 }

@@ -4,7 +4,13 @@ const response = require('../../response');
 const controller = require('./controller');
 
 router.get('/', (req, res) => {
-    response.success(req, res, 'Lista de mensajes');
+    controller.getItem()
+        .then((productList) =>{
+            response.success(req, res, productList, 200)
+        })
+        .catch(e => {
+            response.error(req, res, 'Unexpected Error', 500, e)
+        })
 });
 
 router.post('/', (req, res) => {
