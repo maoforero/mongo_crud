@@ -3,12 +3,11 @@ const router =  express.Router();
 
 
 router.get('/', (req, res) => {
-    res.sendStatus(200).send('Productos');
+    res.send('Productos');
 });
 
 router.post('/', (req, res) => {
-    res.sendStatus(201).send('Producto Post')
+    res.send('Producto Post')
 })
-
 
 module.exports = router;

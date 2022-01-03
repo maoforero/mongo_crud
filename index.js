@@ -1,8 +1,8 @@
 const express = require("express"); // Import express
+const app = express();
 const bodyParser = require('body-parser');
-const router = require("./components/products/routes/routes");
-const app = require('./server');
-const PORT = app.get('port')
+const router = require("./routes");
+const PORT = 3000;
 
 app.use(express.json());
 
@@ -10,13 +10,13 @@ app.use(express.json());
 app.use('/', express.static('public'));
 
 //App iniciando desde cualquier ruta
-router(app);
+router(app)
 
 //App bodyParser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 
 //App escuchando puerto 3000
-app.listen(app.get('port'), (req, res) => {
+app.listen(PORT, (req, res) => {
     console.log(`It's Alive 🤖 http://localhost:${PORT}`)
 });
