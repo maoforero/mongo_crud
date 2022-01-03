@@ -11,5 +11,10 @@ router.use('/', (req, res) => {
     res.sendStatus(201);
 });
 
+const routes = function (server){
+    server.use('/productos', productos)
+}
+
+
 
 module.exports = router;
